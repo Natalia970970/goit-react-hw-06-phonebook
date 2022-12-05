@@ -1,13 +1,15 @@
+import {List, ListItem} from './ContsctList.styled'
+
 export const ContactList = ({contacts}) => {
     return (
-        <ul>
-            {contacts.map(({id, name}) => {
+        <List>
+            {contacts.map(({id, name, number}) => {
             return (
-                <li key={id}>
-                    {name}
-                </li>
+                <ListItem key={id}>
+                    {name}: {number}
+                </ListItem>
             );
         })}
-        </ul>
+        </List>
     );
 };

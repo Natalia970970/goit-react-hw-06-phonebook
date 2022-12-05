@@ -20,13 +20,16 @@ export class App extends Component {
     this.setState({
       contacts: [...this.state.contacts, contact],
       name,
+      number,
     })
   }
 
   render() {
     return (
         <div>
+          <h2>Phonebook</h2>
           <ContactForm onSubmit={this.addContact}></ContactForm>
+          <h2>Contacts</h2>
           <ContactList contacts={this.state.contacts}></ContactList>
         </div>
     )

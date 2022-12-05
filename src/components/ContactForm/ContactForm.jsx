@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Label, Form} from './ContactForm.styled'
 
 export class ContactForm extends Component {
     state = {
@@ -8,7 +9,7 @@ export class ContactForm extends Component {
     }
 
     handleChange = event => {
-        this.setState({ [event.currentTarget.name]: event.currentTarget.value });
+        this.setState({ [event.currentTarget.name]: event.currentTarget.value});
     };
     
     formReset = () => {
@@ -20,14 +21,14 @@ export class ContactForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.onSubmit(this.state.name);
+        this.props.onSubmit(this.state);
         this.formReset();
     };
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
+            <Form onSubmit={this.handleSubmit}>
+                <Label>
                     Name
                     <input
                         onChange={this.handleChange}
@@ -38,21 +39,21 @@ export class ContactForm extends Component {
                         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                         required
                     />
-                </label>
-                <label htmlFor="">
+                </Label>
+                <Label htmlFor="">
                     Number
                     <input
                         onChange={this.handleChange}
                         type="tel"
                         name="number"
-                        value={this.state.name.value}
+                        value={this.state.number.value}
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                         required
                     />
-                </label>
+                </Label>
                 <button type="submit">Add contact</button>
-            </form>
+            </Form>
         )
         }
 }
