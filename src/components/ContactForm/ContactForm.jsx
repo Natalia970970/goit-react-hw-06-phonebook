@@ -3,7 +3,6 @@ import { Label, Form} from './ContactForm.styled'
 
 export class ContactForm extends Component {
     state = {
-        contacts: [],
         name: '',
         number: ''
     }

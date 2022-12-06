@@ -30,8 +30,6 @@ export class App extends Component {
 
     this.setState({
       contacts: [...this.state.contacts, contact],
-      name,
-      number,
     });
   }
 
